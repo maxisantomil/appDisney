@@ -1,0 +1,63 @@
+<hr>
+<div>
+    <h1 class="display-5 titulo">Listado de Peliculas</h1>
+    <hr>
+</div>
+<div class="container-fluid">
+    <table class="table table-success table-striped">
+        <tr>
+
+            <thead class="table-dark">
+                <th>Id</th>
+                <th>Imagen</th>
+                <th>Titulo</th>
+                <th>Fecha Creacion</th>
+                <th>Calificación</th>
+                <th>Personajes asociados</th>
+                <th>Genero</th>
+                <th>Mostrar</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </thead>
+        </tr>
+        <% @movies.each do |movie|%>
+            <tr>
+                <td>
+                    <%= movie.id%>
+                </td>
+                <td>
+                    <img src="<%= movie.url_imagen %>" alt="">
+                </td>
+                <td>
+                    <%= movie.titulo%>
+                </td>
+                <td>
+                    <%= movie.fecha_creacion%>
+                </td>
+                <td>
+                    <%= movie.calificacion%>
+                </td>
+                <td>
+                    <% movie.characters.each do |character| %>
+                        <li>
+                            <%=character.nombre%>
+                        </li>
+                        <%end%>
+                </td>
+                <td>
+                    <% movie.genres.each do |genre| %>
+                        <li>
+                            <%=genre.nombre%>
+                        </li>
+                        <%end%>
+                </td>
+                <td>
+                    <%= link_to "Mostrar"%>
+                </td>
+                <td>
+                    <%= link_to "Editar"%>
+                </td>
+                <td>
+                    <%end%>
+    </table>
+</div>

@@ -1,0 +1,18 @@
+// Place all the styles related to the movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.titulo {
+    background-image: url("https://d107a8nc3g2c4h.cloudfront.net/images/blog/wp-content/uploads/banner-disney.jpg");
+    font-weight: bold;
+    color: greenyellow;
+}
+
+.logo {
+    width: 150px;
+    height: 80px;
+}

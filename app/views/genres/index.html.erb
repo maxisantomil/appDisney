@@ -1,0 +1,40 @@
+<hr>
+<div>
+    <h1 class="display-5 titulo">Listado de Generos</h1>
+    <hr>
+</div>
+
+<div class="container-fluid">
+    <table class="table table-success table-striped">
+        <tr>
+
+            <thead class="table-dark">
+                <th>Id</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Pelicula/Serie Asociadas</th>
+            </thead>
+        </tr>
+        <% @genres.each do |genre|%>
+            <tr>
+                <td>
+                    <%= genre.id%>
+                </td>
+                <td>
+                    <img src="<%= genre.url_imagen %>" alt="">
+                </td>
+                <td>
+                    <%= genre.nombre%>
+                </td>
+                <td>
+                    <% genre.movies.each do |movie| %>
+                        <li>
+                            <%=movie.titulo%>
+                        </li>
+                        <%end%>
+                </td>
+
+            </tr>
+            <%end%>
+    </table>
+</div>

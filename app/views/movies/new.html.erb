@@ -1,0 +1,26 @@
+<div>
+    <hr>
+    <h3>Crear Movie</h3>
+    <hr>
+    <div class="formulario">
+        <%= form_with model: @movie do |form| %>
+            <div>
+                <%= form.label :url_imagen %>
+                    <%= form.text_field :url_imagen %>
+            </div>
+            <div>
+                <%= form.label :titulo %>
+                    <%= form.text_field :titulo %>
+            </div>
+            <div>
+                <%= form.label :fecha_creacion %>
+                    <%= form.text_field :fecha_creacion %>
+            </div>
+            <div>
+                <%= form.label :calificacion %>
+                    <%= form.text_field :calificacion %>
+            </div>
+            <%= form.submit %>
+                <% end %>
+    </div>
+</div>

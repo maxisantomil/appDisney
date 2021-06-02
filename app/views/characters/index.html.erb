@@ -1,0 +1,44 @@
+<hr>
+<div>
+    <h1 class="display-5 titulo">Listado de Personajes</h1>
+    <hr>
+</div>
+<a href="characters/new" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Crear Personaje</a>
+<hr>
+<div class="container-fluid">
+    <table class="table table-success table-striped">
+        <tr>
+
+            <thead class="table-dark">
+                <th>Id</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Mostrar</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </thead>
+        </tr>
+        <% @characters.each do |character|%>
+            <tr>
+                <td>
+                    <%= character.id%>
+                </td>
+                <td>
+                    <img src="<%= character.url_imagen %>" alt="">
+                </td>
+                <td>
+                    <%= character.nombre%>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info"><%= link_to "Mostrar Detalles", character%></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning"> <%= link_to "Editar",edit_character_path(character) %></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger">  <%= link_to "Eliminar", character,method: :delete, data: { confirm: "Deseas eliminar este personaje" } %></button>
+                </td>
+            </tr>
+            <%end%>
+    </table>
+</div>

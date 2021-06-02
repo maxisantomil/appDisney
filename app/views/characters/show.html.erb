@@ -1,0 +1,50 @@
+<hr>
+<div>
+    <h1 class="display-5 titulo">
+        <%= @character.nombre%>
+    </h1>
+    <hr>
+</div>
+<div class="container-fluid">
+    <table class="table table-success table-striped">
+        <tr>
+
+            <thead class="table-dark">
+                <th>Id</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Peso</th>
+                <th>Historia</th>
+                <th>Peliculas/series Asociados</th>
+            </thead>
+        </tr>
+        <tr>
+            <td>
+                <%= @character.id%>
+            </td>
+            <td>
+                <img src="<%= @character.url_imagen %>" alt="">
+            </td>
+            <td>
+                <%= @character.nombre%>
+            </td>
+            <td>
+                <%= @character.edad%>
+            </td>
+            <td>
+                <%= @character.peso%>
+            </td>
+            <td>
+                <%= @character.historia%>
+            </td>
+            <td>
+                <% @character.movies.each do |movie| %>
+                    <li>
+                        <%=movie.titulo%>
+                    </li>
+                    <%end%>
+            </td>
+        </tr>
+    </table>
+</div>

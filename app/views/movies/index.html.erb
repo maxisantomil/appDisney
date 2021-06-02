@@ -3,6 +3,8 @@
     <h1 class="display-5 titulo">Listado de Peliculas</h1>
     <hr>
 </div>
+<a href="movies/new" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Crear Pelicula/Serie</a>
+<hr>
 <div class="container-fluid">
     <table class="table table-success table-striped">
         <tr>
@@ -12,9 +14,6 @@
                 <th>Imagen</th>
                 <th>Titulo</th>
                 <th>Fecha Creacion</th>
-                <th>Calificación</th>
-                <th>Personajes asociados</th>
-                <th>Genero</th>
                 <th>Mostrar</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -35,29 +34,15 @@
                     <%= movie.fecha_creacion%>
                 </td>
                 <td>
-                    <%= movie.calificacion%>
+                    <button type="button" class="btn btn-info"><a class="nav-link" href="movies/<%= movie.id%>">Mostrar Detalles<span class="sr-only"></span></a></button>
                 </td>
                 <td>
-                    <% movie.characters.each do |character| %>
-                        <li>
-                            <%=character.nombre%>
-                        </li>
-                        <%end%>
+                    <button type="button" class="btn btn-warning"><%= link_to "Editar",edit_movie_path(movie) %></button>
                 </td>
                 <td>
-                    <% movie.genres.each do |genre| %>
-                        <li>
-                            <%=genre.nombre%>
-                        </li>
-                        <%end%>
+                    <button type="button" class="btn btn-danger"><%= link_to "Eliminar", movie,method: :delete, data: { confirm: "Deseas eliminar esta pelicula?" } %> </button>
                 </td>
-                <td>
-                    <%= link_to "Mostrar"%>
-                </td>
-                <td>
-                    <%= link_to "Editar"%>
-                </td>
-                <td>
-                    <%end%>
+            </tr>
+            <%end%>
     </table>
 </div>
